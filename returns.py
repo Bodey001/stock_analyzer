@@ -13,7 +13,7 @@ def simple_returns():
     simple_returns = adj_close.pct_change()
 
     file_name = f"{ticker}_Simple_Returns_for_{duration}"
-    simple_returns.to_csv(file_name)
+    simple_returns.to_csv(f"{file_name}.csv")
 
     print(f" ----{ticker} simple returns for a period of {duration} ----")
     print(simple_returns.head())
@@ -26,7 +26,7 @@ def compounded_returns():
     log_returns: pd.DataFrame = np.log(adj_close / adj_close.shift(1)) # type: ignore
 
     file_name = f"{ticker}_Compound_Returns_for_{duration}"
-    log_returns.to_csv(file_name)
+    log_returns.to_csv(f"{file_name}.csv")
 
     print(f"\n ----{ticker} compound returns for a period of {duration} ----")
     print(log_returns.head())
